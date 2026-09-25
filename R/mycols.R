@@ -4,14 +4,22 @@
 #' including for colour-blind viewers (the first 9 stay distinct for all 3 common types).
 #' Asking for more than 23 adds lighter, then darker, shades of the same colours (up to 69).
 #'
+#' @param n How many colours to return, e.g. mycols(15). NULL returns the whole panel.
 #' @param panel NULL / "default" / "0" for the main palette, or "1" / "2" for the older small panels.
-#' @param n How many colours to return. NULL returns the whole panel.
+#'   Old calls like mycols("1") still work: a text value in the first slot is read as the panel.
 #' @return A character vector of colours.
 #' @examples
-#' mycols(n = 10)
-#' # DimPlot(obj, cols = mycols(n = 30))
+#' mycols(10)
+#' mycols("1")
+#' # DimPlot(obj, cols = mycols(30))
 #' @export
-mycols <- function(panel = NULL, n = NULL){
+mycols <- function(n = NULL, panel = NULL){
+  # old style mycols("1"): a text value in the first slot is the panel, not a number
+  if(is.character(n)){
+    panel <- n
+    n <- NULL
+  }
+
   if(is.null(panel) || panel == "default" || panel == "0"){
     cols <- c(
       "aquamarine2",

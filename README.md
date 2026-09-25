@@ -11,7 +11,7 @@ library(ZanFun)
 
 ## Functions
 
-- `mycols(n = 10)`: my colour palette, most-different (and colour-blind friendly) colours first; shades added when more than 23 are needed.
+- `mycols(10)`: my colour palette, most-different (and colour-blind friendly) colours first; shades added when more than 23 are needed.
 
 ## Adding a new function
 

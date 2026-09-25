@@ -4,12 +4,13 @@
 \alias{mycols}
 \title{My colour palette}
 \usage{
-mycols(panel = NULL, n = NULL)
+mycols(n = NULL, panel = NULL)
 }
 \arguments{
-\item{panel}{NULL / "default" / "0" for the main palette, or "1" / "2" for the older small panels.}
+\item{n}{How many colours to return, e.g. mycols(15). NULL returns the whole panel.}
 
-\item{n}{How many colours to return. NULL returns the whole panel.}
+\item{panel}{NULL / "default" / "0" for the main palette, or "1" / "2" for the older small panels.
+Old calls like mycols("1") still work: a text value in the first slot is read as the panel.}
 }
 \value{
 A character vector of colours.
@@ -20,6 +21,7 @@ including for colour-blind viewers (the first 9 stay distinct for all 3 common t
 Asking for more than 23 adds lighter, then darker, shades of the same colours (up to 69).
 }
 \examples{
-mycols(n = 10)
-# DimPlot(obj, cols = mycols(n = 30))
+mycols(10)
+mycols("1")
+# DimPlot(obj, cols = mycols(30))
 }
